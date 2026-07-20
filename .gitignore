@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+venv/
+.venv/
+node_modules/
+*.pdf
+page-*.jpg
+.DS_Store
+data/clean_playlist.parquet
+data/exploded_artists.parquet
