@@ -1022,13 +1022,6 @@ def load_quality_report(data_version):
     )
 
 
-@st.cache_data(show_spinner=False, persist="disk", max_entries=2)
-def full_recording_count(data_version):
-    """Dataset-wide recording-proxy count for provenance/footer display."""
-    clean_df, _, _ = load_data(data_version)
-    return int(len(canonical_recordings(clean_df)))
-
-
 df_full, exploded_full, validation_report = load_data(DATA_VERSION)
 recordings_full = canonical_recordings(df_full)
 FULL_RECORDING_COUNT = int(len(recordings_full))
@@ -1185,7 +1178,10 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 if filters_active:
-    st.caption("🔎 Global filters active — date, collaboration, and release-type filters apply across the dashboard.")
+    st.caption(
+        "Filters active - entry, artist, content, format, and recording views use the selected filters. "
+        "Snapshot diversity and HHI use the selected date range only so reconstructed Top-50 states remain complete."
+    )
 
 # ---------------------------------------------------------------------------
 # Dashboard navigation
@@ -1260,7 +1256,7 @@ st.markdown('<div class="section-spacer"></div>', unsafe_allow_html=True)
 # Structure: market composition and concentration.
 structure_row = st.columns(4)
 kpi_card(structure_row[0], "★", "Top-5 artist-credit share", f"{conc['top_n_share_pct']:.1f}%", ATLANTIC_RED,
-         "Share of period-wide full artist-credit appearances held by the five most frequent credited artists.")
+         "Share of full artist-credit appearances in the current filtered view held by the five most frequent credited artists.")
 kpi_card(structure_row[1], "↔", "Collaborative entries", f"{an.collaboration_ratio(df)*100:.1f}%", ATLANTIC_TEAL,
          "Share of chart entries with more than one credited artist.")
 kpi_card(structure_row[2], "18+", "Explicit entries", f"{es_top['Explicit']:.1f}%", ATLANTIC_GOLD,
@@ -1285,13 +1281,13 @@ if active_view == "Overview":
     s1, s2, s3 = st.columns(3)
     finding_card(
         s1, "🏆", "Artist concentration",
-        f"Top-5 artists account for <b>{conc['top_n_share_pct']:.1f}%</b> of period-wide full artist-credit appearances "
-        f"(HHI <b>{conc['hhi']:.0f}</b>). This is a long-run persistence measure, not a typical-snapshot HHI.",
+        f"Top-5 artists account for <b>{conc['top_n_share_pct']:.1f}%</b> of full artist-credit appearances in the current view "
+        f"(HHI <b>{conc['hhi']:.0f}</b>). This is a current-view artist-credit concentration measure, not a typical-snapshot HHI.",
         ATLANTIC_NAVY,
     )
     finding_card(
         s2, "▦", "Typical snapshot",
-        f"A filtered snapshot averages <b>{mean_unique:.1f}</b> unique credited artists and "
+        f"Complete snapshots within the selected date range average <b>{mean_unique:.1f}</b> unique credited artists and "
         f"<b>{mean_effective:.1f}</b> effective artists. Median fractional snapshot HHI is <b>{median_hhi:.0f}</b>.",
         ATLANTIC_TEAL,
     )
@@ -1350,7 +1346,7 @@ if active_view == "Overview":
             </div>
             <div class="grain-card">
                 <div class="grain-card-title">Recording Proxies</div>
-                <div class="grain-card-text">Track-level comparisons</div>
+                <div class="grain-card-text">Recording-proxy comparisons</div>
             </div>
             <div class="grain-card">
                 <div class="grain-card-title">Snapshots</div>
@@ -1501,7 +1497,7 @@ if active_view == "Artists":
 
     insight_card(
         "🏆", "Market concentration read",
-        f"Top-5 artists account for <b>{conc['top_n_share_pct']:.1f}%</b> of period-wide full artist-credit appearances. "
+        f"Top-5 artists account for <b>{conc['top_n_share_pct']:.1f}%</b> of full artist-credit appearances in the current view. "
         f"Median fractional snapshot HHI is <b>{snapshot_health['fractional_hhi'].median():.0f}</b>; the measures answer different questions.",
         ATLANTIC_NAVY,
     )
@@ -1523,10 +1519,10 @@ if active_view == "Artists":
         st.plotly_chart(style_fig(fig, legend=False), width="stretch")
     with right:
         st.metric("Top-5 credit share", f"{conc['top_n_share_pct']:.1f}%")
-        st.metric("Period full-credit HHI", f"{conc['hhi']:.0f}")
+        st.metric("Current-view full-credit HHI", f"{conc['hhi']:.0f}")
         st.metric("Mean effective artists / snapshot", f"{snapshot_health['effective_number_of_artists'].mean():.1f}")
         st.metric("Mean unique artists / snapshot", f"{snapshot_health['unique_artists'].mean():.1f}")
-        st.caption("Period-wide credit concentration and snapshot concentration are intentionally reported separately.")
+        st.caption("Current-view credit concentration and date-scoped snapshot concentration are intentionally reported separately.")
 
     st.markdown("#### Artist Landscape Treemap")
     tm_data = an.top_dominating_artists(exploded, 30).reset_index()
@@ -1553,7 +1549,7 @@ if active_view == "Artists":
         )
         pie.update_traces(textinfo="percent", hovertemplate="<b>%{label}</b><br>Artist-credit share: %{value:.2f}%<extra></extra>")
         donut_center(pie, dom_intl.get(UK, 0), "UK / Domestic")
-        pie.update_layout(title="Period-Wide Artist-Credit Share")
+        pie.update_layout(title="Current-View Artist-Credit Share")
         st.plotly_chart(style_donut(pie), width="stretch")
     with c2:
         by_rank = an.domestic_vs_international_by_rank(df, exploded)
@@ -1756,6 +1752,10 @@ if active_view == "Formats":
         st.plotly_chart(style_fig(fig_footprint, legend=False, height=380), width="stretch")
 
     st.markdown("#### Popularity by Parent Release Size")
+    st.caption(
+        "Popularity is a supplied 0-100 source field. "
+        "Its upstream provider and exact calculation methodology are not identified in the supplied project materials."
+    )
     if "album_size_bucket" in recordings.columns and "popularity" in recordings.columns:
         proxy_pop = recordings.groupby("album_size_bucket", observed=True)["popularity"].mean().dropna()
         title = "Average Popularity by Release Size · Recording Proxies"
@@ -1800,6 +1800,10 @@ if active_view == "Duration":
         st.plotly_chart(style_fig(fig_quartile, legend=False, height=360), width="stretch")
 
     st.markdown("#### Duration vs Popularity · Recording Proxies")
+    st.caption(
+        "Popularity is a supplied 0-100 source field. "
+        "Its upstream provider and exact calculation methodology are not identified in the supplied project materials."
+    )
     if {"duration_sec", "popularity"}.issubset(recordings.columns):
         scatter_source = recordings.copy()
     elif "recording_proxy_id" in df.columns:
@@ -1939,7 +1943,7 @@ if active_view == "Strategy":
     )
     evidence_card(
         r4, "Cross-border positioning",
-        f"International artists account for {dom_intl.get(INTL, 0):.1f}% of period-wide artist credits and {fmt_pct(intl_top5)} in positions 1–5.",
+        f"International artists account for {dom_intl.get(INTL, 0):.1f}% of artist credits in the current view and {fmt_pct(intl_top5)} in positions 1–5.",
         "International representation is substantial in the UK Top 50, including at the highest chart tier.",
         "Where should UK-origin and international campaigns use different objectives, creative, or partner strategies?",
         ATLANTIC_GOLD,
