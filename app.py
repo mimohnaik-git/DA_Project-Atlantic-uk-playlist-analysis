@@ -1030,7 +1030,8 @@ def full_recording_count(data_version):
 
 
 df_full, exploded_full, validation_report = load_data(DATA_VERSION)
-FULL_RECORDING_COUNT = full_recording_count(DATA_VERSION)
+recordings_full = canonical_recordings(df_full)
+FULL_RECORDING_COUNT = int(len(recordings_full))
 
 # ---------------------------------------------------------------------------
 # Sidebar — Filters
@@ -1101,7 +1102,8 @@ def build_filtered_views(start_iso, end_iso, collaboration_mode, album_types_key
     end = pd.Timestamp(end_iso).date()
 
     mask = (df_full["date"].dt.date >= start) & (df_full["date"].dt.date <= end)
-    filtered = df_full.loc[mask].copy()
+    date_filtered = df_full.loc[mask].copy()
+    filtered = date_filtered.copy()
 
     if collaboration_mode == "Solo entries only":
         filtered = filtered.loc[~filtered["is_collaboration"]].copy()
@@ -1125,8 +1127,20 @@ def build_filtered_views(start_iso, end_iso, collaboration_mode, album_types_key
     )
     credits["nationality"] = credits["artist_name"].map(nationality_map).fillna(UNK)
 
-    recording_view = canonical_recordings(filtered).copy()
-    snapshot_view = an.snapshot_market_metrics(credits)
+    visible_proxy_ids = set(
+        filtered["recording_proxy_id"].dropna().astype(str)
+    )
+
+    recording_view = recordings_full.loc[
+        recordings_full["recording_proxy_id"].astype(str).isin(visible_proxy_ids)
+    ].copy()
+
+    snapshot_credits = exploded_full.loc[
+        (exploded_full["date"].dt.date >= start)
+        & (exploded_full["date"].dt.date <= end)
+    ].copy()
+
+    snapshot_view = an.snapshot_market_metrics(snapshot_credits)
     return filtered, credits, recording_view, snapshot_view
 
 
