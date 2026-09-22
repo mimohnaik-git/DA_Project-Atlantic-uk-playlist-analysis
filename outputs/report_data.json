@@ -1,214 +1,467 @@
 {
+  "methodology_version": "2.0-snapshot-aware",
+  "analytical_units": {
+    "chart_entry": "one observed rank within one reconstructed snapshot",
+    "snapshot": "one complete ordered Top-50 ranking; boundaries inferred from resets to position 1",
+    "artist_credit": "one credited artist on one chart entry",
+    "song_title": "the raw textual song value; not a track identifier",
+    "recording_proxy": "normalised title + exact duration_ms; dataset-local and not a global ID",
+    "recording_proxy_metadata": "one canonical row per proxy using the earliest observed metadata after sorting by date and source_row_id; this deterministic first-observed rule is also used for proxy-level collaboration attributes"
+  },
+  "counts": {
+    "processed_chart_entries": 27800,
+    "distinct_dates": 555,
+    "snapshots": 556,
+    "unique_song_titles_raw": 803,
+    "unique_song_titles_normalized": 798,
+    "unique_recording_proxies": 833,
+    "unique_artists": 359,
+    "artist_credit_observations": 34492
+  },
+  "date_range": {
+    "min": "2024-05-18",
+    "max": "2025-11-27"
+  },
+  "concentration": {
+    "period_wide_full_credit": {
+      "top_5_share_pct": 15.29,
+      "top_10_share_pct": 22.79,
+      "top_20_share_pct": 35.14,
+      "hhi": 116.2
+    },
+    "period_wide_fractional": {
+      "top_5_share_pct": 18.72,
+      "hhi": 149.8
+    },
+    "snapshot_fractional": {
+      "mean_hhi": 474.1,
+      "median_hhi": 338.0,
+      "min_hhi": 206.2,
+      "max_hhi": 3675.3
+    }
+  },
+  "diversity": {
+    "mean_snapshot_unique_artists": 48.53,
+    "mean_artist_credit_uniqueness_ratio": 0.781,
+    "mean_shannon_entropy": 3.585,
+    "mean_effective_number_of_artists": 37.67
+  },
+  "collaboration": {
+    "entry_share_pct": 17.75,
+    "recording_proxy_share_pct": 15.61,
+    "average_collaborators_per_entry": 1.241,
+    "average_collaborators_per_recording_proxy": 1.197,
+    "entry_counts": {
+      "Solo chart entries": 22866,
+      "Collaborative chart entries": 4934
+    },
+    "exclusive_rank_bands_pct": {
+      "1-5": 15.79,
+      "6-10": 21.01,
+      "11-20": 20.74,
+      "21-50": 16.53
+    },
+    "top_pairs": [
+      {
+        "artist_a": "Central Cee",
+        "artist_b": "Dave",
+        "co_credited_appearances": 392,
+        "unique_collaborative_tracks": 4
+      },
+      {
+        "artist_a": "D-Block Europe",
+        "artist_b": "RAYE",
+        "co_credited_appearances": 349,
+        "unique_collaborative_tracks": 1
+      },
+      {
+        "artist_a": "D-Block Europe",
+        "artist_b": "cass\u00f6",
+        "co_credited_appearances": 349,
+        "unique_collaborative_tracks": 1
+      },
+      {
+        "artist_a": "RAYE",
+        "artist_b": "cass\u00f6",
+        "co_credited_appearances": 349,
+        "unique_collaborative_tracks": 1
+      },
+      {
+        "artist_a": "Madonna",
+        "artist_b": "The Weeknd",
+        "co_credited_appearances": 208,
+        "unique_collaborative_tracks": 4
+      },
+      {
+        "artist_a": "Bou",
+        "artist_b": "Chase & Status",
+        "co_credited_appearances": 196,
+        "unique_collaborative_tracks": 1
+      },
+      {
+        "artist_a": "Bou",
+        "artist_b": "Flowdan",
+        "co_credited_appearances": 196,
+        "unique_collaborative_tracks": 1
+      },
+      {
+        "artist_a": "Chase & Status",
+        "artist_b": "Flowdan",
+        "co_credited_appearances": 196,
+        "unique_collaborative_tracks": 1
+      },
+      {
+        "artist_a": "Becky Hill",
+        "artist_b": "Chase & Status",
+        "co_credited_appearances": 157,
+        "unique_collaborative_tracks": 1
+      },
+      {
+        "artist_a": "BL3SS",
+        "artist_b": "CamrinWatsin",
+        "co_credited_appearances": 148,
+        "unique_collaborative_tracks": 1
+      },
+      {
+        "artist_a": "BL3SS",
+        "artist_b": "bbyclose",
+        "co_credited_appearances": 148,
+        "unique_collaborative_tracks": 1
+      },
+      {
+        "artist_a": "CamrinWatsin",
+        "artist_b": "bbyclose",
+        "co_credited_appearances": 148,
+        "unique_collaborative_tracks": 1
+      },
+      {
+        "artist_a": "Kanye West",
+        "artist_b": "Ty Dolla $ign",
+        "co_credited_appearances": 146,
+        "unique_collaborative_tracks": 19
+      },
+      {
+        "artist_a": "Hannah Laing",
+        "artist_b": "RoRo",
+        "co_credited_appearances": 143,
+        "unique_collaborative_tracks": 1
+      },
+      {
+        "artist_a": "Calvin Harris",
+        "artist_b": "Ellie Goulding",
+        "co_credited_appearances": 132,
+        "unique_collaborative_tracks": 1
+      },
+      {
+        "artist_a": "Clementine Douglas",
+        "artist_b": "MK",
+        "co_credited_appearances": 116,
+        "unique_collaborative_tracks": 1
+      },
+      {
+        "artist_a": "Clementine Douglas",
+        "artist_b": "Sonny Fodera",
+        "co_credited_appearances": 116,
+        "unique_collaborative_tracks": 1
+      },
+      {
+        "artist_a": "MK",
+        "artist_b": "Sonny Fodera",
+        "co_credited_appearances": 116,
+        "unique_collaborative_tracks": 1
+      },
+      {
+        "artist_a": "Charlotte Plank",
+        "artist_b": "Rudimental",
+        "co_credited_appearances": 115,
+        "unique_collaborative_tracks": 1
+      },
+      {
+        "artist_a": "Charlotte Plank",
+        "artist_b": "Vibe Chemistry",
+        "co_credited_appearances": 115,
+        "unique_collaborative_tracks": 1
+      }
+    ]
+  },
+  "explicit": {
+    "overall_pct": {
+      "Explicit": 32.06,
+      "Clean": 67.94
+    },
+    "exclusive_rank_bands_pct": {
+      "1-5": 40.0,
+      "6-10": 40.79,
+      "11-20": 33.35,
+      "21-50": 28.85
+    },
+    "cumulative_top_n_pct": {
+      "Top 5": 40.0,
+      "Top 10": 40.4,
+      "Top 20": 36.87
+    }
+  },
+  "release_format": {
+    "overall_pct": {
+      "album": 59.96,
+      "single": 39.76,
+      "compilation": 0.28
+    },
+    "exclusive_rank_bands_pct": {
+      "album": {
+        "1-5": 41.62,
+        "6-10": 50.22,
+        "11-20": 55.23,
+        "21-50": 66.22
+      },
+      "compilation": {
+        "1-5": 0.07,
+        "6-10": 0.04,
+        "11-20": 0.95,
+        "21-50": 0.13
+      },
+      "single": {
+        "1-5": 58.31,
+        "6-10": 49.75,
+        "11-20": 43.81,
+        "21-50": 33.65
+      }
+    }
+  },
+  "nationality": {
+    "artist_credit_share_pct": {
+      "UK / Domestic": 34.68,
+      "International": 64.61,
+      "Unclassified": 0.7
+    },
+    "fractional_entry_share_pct": {
+      "UK / Domestic": 29.0,
+      "International": 70.54,
+      "Unclassified": 0.46
+    }
+  },
+  "duration": {
+    "mean_seconds": 197.3,
+    "mean_mm_ss": "3:17",
+    "distribution_pct": {
+      "Short (<2:30)": 14.52,
+      "Standard (2:30-3:30)": 46.92,
+      "Long (3:30-4:30)": 32.5,
+      "Extended (4:30+)": 6.06
+    },
+    "by_popularity_quartile_seconds": {
+      "Q1 (Lowest)": 201.0,
+      "Q2": 202.3,
+      "Q3": 195.2,
+      "Q4 (Highest)": 190.9
+    },
+    "summary_seconds": {
+      "count": 27800.0,
+      "mean": 197.3,
+      "std": 48.9,
+      "min": 37.3,
+      "25%": 167.3,
+      "50%": 186.5,
+      "75%": 224.3,
+      "max": 587.4
+    }
+  },
+  "data_quality": {
+    "status": "PASS",
+    "checks": [
+      {
+        "name": "required_columns",
+        "status": "PASS",
+        "value": [],
+        "detail": "All required source fields must be present."
+      },
+      {
+        "name": "raw_row_count",
+        "status": "PASS",
+        "value": 27800,
+        "detail": "Supplied project extract is expected to contain 27,800 rows."
+      },
+      {
+        "name": "required_value_nulls",
+        "status": "PASS",
+        "value": 0,
+        "detail": "Null cells across required source fields."
+      },
+      {
+        "name": "date_parsing",
+        "status": "PASS",
+        "value": 0,
+        "detail": "Rows whose date could not be parsed."
+      },
+      {
+        "name": "calendar_date_coverage",
+        "status": "WARNING",
+        "value": [
+          "2025-03-14",
+          "2025-03-25",
+          "2025-07-11",
+          "2025-08-13"
+        ],
+        "detail": "Missing dates are reported; they are not imputed."
+      },
+      {
+        "name": "multiple_snapshots_per_date",
+        "status": "WARNING",
+        "value": {
+          "2025-03-01": 2
+        },
+        "detail": "Snapshot boundaries are inferred from source-order resets to position 1."
+      },
+      {
+        "name": "march_1_reconstruction",
+        "status": "PASS",
+        "value": [
+          "2025-03-01__1",
+          "2025-03-01__2"
+        ],
+        "detail": "The 100-row date must reconstruct as two complete Top-50 snapshots."
+      },
+      {
+        "name": "position_domain",
+        "status": "PASS",
+        "value": 0,
+        "detail": "Positions must be integers from 1 to 50."
+      },
+      {
+        "name": "snapshot_row_counts",
+        "status": "PASS",
+        "value": {},
+        "detail": "Each valid snapshot must contain 50 rows."
+      },
+      {
+        "name": "duplicate_snapshot_positions",
+        "status": "PASS",
+        "value": 0,
+        "detail": "Each expected position may occur once per snapshot."
+      },
+      {
+        "name": "missing_snapshot_positions",
+        "status": "PASS",
+        "value": {},
+        "detail": "Missing ranks within reconstructed snapshots."
+      },
+      {
+        "name": "exact_source_duplicates",
+        "status": "WARNING",
+        "value": 12,
+        "detail": "Repeated complete source rows are retained when they belong to different inferred snapshots."
+      },
+      {
+        "name": "duplicate_recordings_within_snapshot",
+        "status": "PASS",
+        "value": 0,
+        "detail": "Repeated recording proxies inside one snapshot require review."
+      },
+      {
+        "name": "album_type_domain",
+        "status": "PASS",
+        "value": [],
+        "detail": "Unexpected release-format values."
+      },
+      {
+        "name": "explicit_content_domain",
+        "status": "PASS",
+        "value": [],
+        "detail": "Explicit flag must be boolean."
+      },
+      {
+        "name": "positive_duration",
+        "status": "PASS",
+        "value": 0,
+        "detail": "Zero or negative duration values."
+      },
+      {
+        "name": "positive_total_tracks",
+        "status": "PASS",
+        "value": 0,
+        "detail": "Invalid parent-release track counts."
+      },
+      {
+        "name": "popularity_bounds",
+        "status": "PASS",
+        "value": 0,
+        "detail": "Popularity must be between 0 and 100."
+      },
+      {
+        "name": "artist_parsing",
+        "status": "PASS",
+        "value": 0,
+        "detail": "Entries with no parsed credited artist."
+      },
+      {
+        "name": "empty_collaborator_arrays",
+        "status": "PASS",
+        "value": 0,
+        "detail": "Chart entries without a credited-artist array."
+      },
+      {
+        "name": "nationality_coverage",
+        "status": "WARNING",
+        "value": 0.7,
+        "detail": "Manual nationality mapping is incomplete by design; unclassified artists remain explicit."
+      },
+      {
+        "name": "recording_metadata_stability",
+        "status": "WARNING",
+        "value": {
+          "song": 3,
+          "credited_artist_set": 25,
+          "duration_ms": 0,
+          "album_type": 48,
+          "total_tracks": 59,
+          "is_explicit": 11,
+          "credited_artist_set_on_title_duration_key": 25
+        },
+        "detail": "Recording-proxy metadata can legitimately vary across repeated chart observations; the proxy identity remains title + exact duration."
+      },
+      {
+        "name": "title_collisions",
+        "status": "WARNING",
+        "value": 33,
+        "detail": "Normalised song titles associated with multiple exact durations."
+      },
+      {
+        "name": "fractional_artist_weights",
+        "status": "PASS",
+        "value": 0.0,
+        "detail": "Fractional artist weights for each chart entry must reconcile to 1.0."
+      },
+      {
+        "name": "output_row_consistency",
+        "status": "PASS",
+        "value": {
+          "raw": 27800,
+          "processed": 27800,
+          "artist_credits": 34492,
+          "recordings": 833
+        },
+        "detail": "Raw and processed row counts must reconcile; derived grains are reported separately."
+      }
+    ]
+  },
   "kpi_summary": {
-    "Artist Concentration Index (Top-5 share, %)": 15.29,
-    "Artist Concentration (HHI)": 116.2,
-    "Unique Artist Count": 359,
-    "Diversity Score (unique artists / entries)": 0.0129,
-    "Collaboration Ratio (%)": 17.75,
-    "Avg Collaborators per Song": 1.241,
-    "Explicit Content Share (%)": 32.06,
-    "Single Share (%)": 39.76,
-    "Album Share (%)": 59.96,
-    "Content Variety Index (0-100)": 37.56,
-    "UK/Domestic Artist Share (%)": 34.68,
-    "International Artist Share (%)": 64.61,
-    "Avg Track Duration (mm:ss)": "3:17",
-    "Total Playlist Entries": 27800,
-    "Date Range": "2024-05-18 to 2025-11-27",
-    "Unique Songs": 803
-  },
-  "top_20_artists": {
-    "Taylor Swift": 2093,
-    "Sabrina Carpenter": 965,
-    "Billie Eilish": 888,
-    "Olivia Rodrigo": 694,
-    "Chappell Roan": 634,
-    "Benson Boone": 538,
-    "Central Cee": 534,
-    "Drake": 518,
-    "The Killers": 512,
-    "Dua Lipa": 486,
-    "Chase & Status": 482,
-    "Noah Kahan": 459,
-    "RAYE": 443,
-    "Teddy Swims": 434,
-    "Arctic Monkeys": 432,
-    "The Weeknd": 421,
-    "D-Block Europe": 410,
-    "Tate McRae": 407,
-    "Dave": 398,
-    "Charli xcx": 374
-  },
-  "concentration_top5": {
-    "top_n": 5,
-    "top_n_share_pct": 15.29,
-    "hhi": 116.2,
-    "total_unique_artists": 359
-  },
-  "concentration_top10": {
-    "top_n": 10,
-    "top_n_share_pct": 22.79,
-    "hhi": 116.2,
-    "total_unique_artists": 359
-  },
-  "solo_vs_collab": {
-    "Solo": 22866,
-    "Collaboration": 4934
-  },
-  "collab_ratio_pct": 17.75,
-  "avg_collaborators": 1.241,
-  "collab_by_rank": {
-    "Top 5": 15.79,
-    "Top 10": 21.01,
-    "Top 20": 20.74,
-    "21-50": 16.53
-  },
-  "top_collab_pairs": [
-    {
-      "artist_a": "Central Cee",
-      "artist_b": "Dave",
-      "weight": 392
-    },
-    {
-      "artist_a": "D-Block Europe",
-      "artist_b": "RAYE",
-      "weight": 348
-    },
-    {
-      "artist_a": "D-Block Europe",
-      "artist_b": "cass\u00f6",
-      "weight": 348
-    },
-    {
-      "artist_a": "RAYE",
-      "artist_b": "cass\u00f6",
-      "weight": 348
-    },
-    {
-      "artist_a": "Madonna",
-      "artist_b": "The Weeknd",
-      "weight": 208
-    },
-    {
-      "artist_a": "Bou",
-      "artist_b": "Chase & Status",
-      "weight": 196
-    },
-    {
-      "artist_a": "Chase & Status",
-      "artist_b": "Flowdan",
-      "weight": 196
-    },
-    {
-      "artist_a": "Bou",
-      "artist_b": "Flowdan",
-      "weight": 196
-    },
-    {
-      "artist_a": "Becky Hill",
-      "artist_b": "Chase & Status",
-      "weight": 157
-    },
-    {
-      "artist_a": "BL3SS",
-      "artist_b": "bbyclose",
-      "weight": 148
-    }
-  ],
-  "explicit_share": {
-    "Explicit": 32.06,
-    "Clean": 67.94
-  },
-  "explicit_by_rank": {
-    "Top 5": 40.0,
-    "Top 10": 40.79,
-    "Top 20": 33.35,
-    "21-50": 28.85
-  },
-  "album_type_share": {
-    "album": 59.96,
-    "single": 39.76,
-    "compilation": 0.28
-  },
-  "release_format_by_rank": {
-    "album": {
-      "Top 5": 41.62,
-      "Top 10": 50.22,
-      "Top 20": 55.23,
-      "21-50": 66.22
-    },
-    "compilation": {
-      "Top 5": 0.07,
-      "Top 10": 0.04,
-      "Top 20": 0.95,
-      "21-50": 0.13
-    },
-    "single": {
-      "Top 5": 58.31,
-      "Top 10": 49.75,
-      "Top 20": 43.81,
-      "21-50": 33.65
-    }
-  },
-  "duration_distribution": {
-    "Short (<2:30)": 14.52,
-    "Standard (2:30-3:30)": 46.92,
-    "Long (3:30-4:30)": 32.5,
-    "Extended (4:30+)": 6.06
-  },
-  "duration_vs_popularity": {
-    "Q1 (Lowest)": 200.2,
-    "Q2": 200.6,
-    "Q3": 197.1,
-    "Q4 (Highest)": 189.1
-  },
-  "duration_stats": {
-    "count": 27800.0,
-    "mean": 197.3,
-    "std": 48.9,
-    "min": 37.3,
-    "25%": 167.3,
-    "50%": 186.5,
-    "75%": 224.3,
-    "max": 587.4
-  },
-  "domestic_vs_intl": {
-    "International": 64.61,
-    "UK / Domestic": 34.68,
-    "Unclassified": 0.7
-  },
-  "domestic_vs_intl_by_rank": {
-    "UK / Domestic": {
-      "Top 5": 30.04,
-      "Top 10": 29.69,
-      "Top 20": 40.17,
-      "21-50": 34.37
-    },
-    "International": {
-      "Top 5": 69.9,
-      "Top 10": 70.23,
-      "Top 20": 59.66,
-      "21-50": 64.53
-    },
-    "Unclassified": {
-      "Top 5": 0.06,
-      "Top 10": 0.09,
-      "Top 20": 0.17,
-      "21-50": 1.1
-    }
-  },
-  "content_variety_index": 37.56,
-  "n_rows": 27800,
-  "n_unique_songs": 803,
-  "n_unique_artists": 359,
-  "date_min": "2024-05-18",
-  "date_max": "2025-11-27",
-  "n_days": 555,
-  "album_size_buckets": {
-    "Single (1)": 9348,
-    "EP (2-5)": 1666,
-    "Album (6-12)": 5111,
-    "Deluxe (13-20)": 9622,
-    "Extended (20+)": 2053
+    "Raw/processed chart entries": 27800,
+    "Distinct dates": 555,
+    "Snapshots": 556,
+    "Unique recording proxies": 833,
+    "Artist-credit observations": 34492,
+    "Collaboration share \u2014 chart entries (%)": 17.75,
+    "Collaboration share \u2014 recording proxies (%)": 15.61,
+    "Period-wide Top-5 artist-credit share (%)": 15.29,
+    "Period-wide artist-credit HHI": 116.2,
+    "Mean effective number of artists": 37.67,
+    "Explicit chart-entry share (%)": 32.06,
+    "Album chart-entry share (%)": 59.96,
+    "Single chart-entry share (%)": 39.76,
+    "Compilation chart-entry share (%)": 0.28,
+    "UK/Domestic artist-credit share (%)": 34.68,
+    "International artist-credit share (%)": 64.61,
+    "Nationality unclassified artist-credit rate (%)": 0.7,
+    "Average duration (mm:ss)": "3:17"
   }
 }
