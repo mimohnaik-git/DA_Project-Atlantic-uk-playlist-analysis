@@ -1,4 +1,4 @@
-artist_name,artist_credit_appearances
+artist_name,0
 Taylor Swift,2093
 Sabrina Carpenter,965
 Billie Eilish,888
@@ -18,13 +18,13 @@ The Weeknd,421
 D-Block Europe,410
 Tate McRae,407
 Dave,398
-Charli xcx,374
 Ariana Grande,368
 cassö,349
-Hozier,333
 Harry Styles,333
+Hozier,333
 Natasha Bedingfield,320
 Vance Joy,315
+Charli xcx,295
 Lord Huron,294
 Post Malone,285
 Ella Henderson,279
@@ -32,36 +32,37 @@ Michael Marcagi,278
 SZA,268
 Doja Cat,262
 Dasha,255
-Ice Spice,242
 Jazzy,242
+Ice Spice,242
 Kanye West,242
 Coldplay,236
 David Guetta,236
 David Kushner,235
 Beyoncé,232
 Tyla,219
+Shaboozey,218
 Fred again..,218
 Clementine Douglas,218
-Shaboozey,218
 Myles Smith,212
-Kenya Grace,208
 Madonna,208
 Bou,208
-Kendrick Lamar,207
+Kenya Grace,208
 Rudimental,207
+Kendrick Lamar,207
 Calvin Harris,202
 OneRepublic,197
 Flowdan,196
 Artemas,196
-The Goo Goo Dolls,193
 Sonny Fodera,193
+The Goo Goo Dolls,193
 Mitski,190
 Gunna,188
-"Tyler, The Creator",182
+The Creator,182
+Tyler,182
 Zach Bryan,179
 Eminem,179
-Gracie Abrams,177
 Mark Ambor,177
+Gracie Abrams,177
 Travis Scott,176
 Richy Mitch & The Coal Miners,175
 Jack Harlow,175
@@ -73,8 +74,8 @@ The Kid LAROI,158
 Becky Hill,158
 Lewis Capaldi,154
 Fleetwood Mac,153
-bbyclose,148
 CamrinWatsin,148
+bbyclose,148
 BL3SS,148
 Ty Dolla $ign,146
 RoRo,143
@@ -88,8 +89,8 @@ Oasis,128
 Jordan Adetunji,126
 Stormzy,124
 PinkPantheress,120
-Rema,119
 Lady Gaga,119
+Rema,119
 MK,116
 Anne-Marie,115
 Charlotte Plank,115
@@ -99,26 +100,26 @@ Obongjayar,113
 Tom Odell,113
 Morgan Wallen,104
 ¥$,103
-The Blessed Madonna,102
-Switch Disco,102
 Keinemusik,102
-Robert Miles,102
 Adam Port,102
+The Blessed Madonna,102
 Stryv,102
+Switch Disco,102
+Robert Miles,102
 Nicki Minaj,101
 Frank Ocean,101
 Jorja Smith,101
 Aqua,100
 Gigi Perez,99
-Florence + The Machine,97
 Future,97
+Florence + The Machine,97
 Libianca,95
 21 Savage,94
 Billy Gillies,89
 Hannah Boleyn,89
-Lil Baby,88
-Playboi Carti,88
 Linkin Park,88
+Playboi Carti,88
+Lil Baby,88
 Troye Sivan,87
 Nathan Dawe,85
 Joel Corry,85
@@ -126,17 +127,18 @@ YG Marley,84
 Michael Bublé,82
 Bryson Tiller,82
 Good Neighbours,80
-Mariah Carey,77
+Charli XCX,79
 *NSYNC,77
-Kelly Clarkson,76
+Mariah Carey,77
 Wham!,76
+Kelly Clarkson,76
 Kygo,75
 Ava Max,75
 Tears For Fears,74
 One Direction,74
 Badger,72
-Jung Kook,70
 Sam Smith,70
+Jung Kook,70
 Coi Leray,68
 Abel Balder,67
 ANOTR,67
@@ -151,55 +153,55 @@ Brenda Lee,57
 Bobby Helms,54
 Lil Durk,53
 Latto,52
-Rachel Zegler,51
 Flatland Cavalry,51
+Rachel Zegler,51
 Bebe Rexha,50
-The Neighbourhood,48
 Loreen,48
-Kylie Minogue,47
+The Neighbourhood,48
 Andy Williams,47
 Lay Bankz,47
+Kylie Minogue,47
 The Last Dinner Party,45
-Bakar,45
-Sam Fender,45
 The Pogues,45
+Sam Fender,45
+Bakar,45
 Zara Larsson,44
-Lily-Rose Depp,43
 JENNIE,43
+Lily-Rose Depp,43
 Jungle,42
 Mark Ronson,41
 Dean Martin,41
-Kalmi,40
 Hanumankind,40
-ROSÉ,39
+Kalmi,40
 FIFTY FIFTY,39
 Sia,39
+ROSÉ,39
 Shakin' Stevens,36
 Ryan Gosling,36
+The Ronettes,35
 Marvin Gaye,35
 Tammi Terrell,35
-The Ronettes,35
 The Cranberries,34
 Band Aid,33
 John Lennon,33
-Chris Rea,32
 Paul McCartney,32
-Trippie Redd,30
-Frank Sinatra,30
-LF SYSTEM,30
+Chris Rea,32
 KSI,30
-Lana Del Rey,30
+LF SYSTEM,30
 Justin Bieber,30
+Frank Sinatra,30
+Lana Del Rey,30
+Trippie Redd,30
 Nat King Cole,29
-Pozer,28
 Kings of Leon,28
-José Feliciano,28
 Wizzard,28
+Pozer,28
+José Feliciano,28
 Leona Lewis,27
-Darlene Love,27
 Slade,27
-Kali,26
+Darlene Love,27
 The Jackson 5,26
+Kali,26
 Laufey,25
 Tom Grennan,24
 Shania Twain,24
@@ -210,151 +212,151 @@ Dominic Fike,21
 Van Morrison,20
 Nines,19
 Crowded House,19
-Burl Ives,17
-Bing Crosby,17
-Miguel,17
-Oliver Anthony Music,17
 Fred Astaire,17
+Oliver Anthony Music,17
+Miguel,17
+Bing Crosby,17
+Burl Ives,17
 Fredo,16
 Glass Animals,16
+Mae Stephens,15
+ArrDee,15
+Bad Bunny,15
 Hedex,15
 Journey,15
-Mae Stephens,15
 Jimin,15
-Bad Bunny,15
-ArrDee,15
+Chuck Berry,14
 venbee,14
 Pretenders,14
-Chuck Berry,14
-The Beatles,13
-Cher,13
 goddard.,13
+The Beatles,13
 The Beach Boys,13
-Elvis Presley,12
+Cher,13
 Slay,12
 Jonas Brothers,12
 Käärijä,12
-Jozzy,11
-Eartha Kitt,11
-Two Door Cinema Club,11
-Mud,11
+Elvis Presley,12
 Lil Mabu,11
+Mud,11
+Eartha Kitt,11
+Jozzy,11
+Two Door Cinema Club,11
 Baddiel,10
-Skinner,10
 Lightning Seeds,10
-Princess Superstar,9
+Skinner,10
+Cynthia Erivo,9
+Bring Me The Horizon,9
+Byron Messia,9
 Wicked Movie Cast,9
 Lizzo,9
-Byron Messia,9
-Bring Me The Horizon,9
-Cynthia Erivo,9
 Mason,9
+Princess Superstar,9
 Alessandra,8
-GRM Daily,8
 Selena Gomez,8
-WALK THE MOON,7
-Otis Redding,7
+GRM Daily,8
 Britney Spears,7
-Clavish,7
 Quavo,7
 NewEra,7
+WALK THE MOON,7
+Otis Redding,7
 Megan Thee Stallion,7
 Ocean Alley,7
-Perrie,6
+Clavish,7
+Big Sean,6
+The Lightning Seeds,6
 Anderson .Paak,6
-BabyTron,6
+Perrie,6
+Lorde,6
 Bill Withers,6
 CHIKA,6
-Big Sean,6
-Lorde,6
+BabyTron,6
 Tina Turner,6
-The Lightning Seeds,6
-Various Artists,5
 Interplanetary Criminal,5
-Anitta,5
-Eliza Rose,5
-Luke Combs,5
-Lyrical Lemonade,5
-Michael Jackson,5
 Nemo,5
+Luke Combs,5
+Anitta,5
+Various Artists,5
+Eliza Rose,5
+Michael Jackson,5
 Rihanna,5
-Alex Warren,4
-XG,4
-Donny Hathaway,4
-Bruce Springsteen,4
+Lyrical Lemonade,5
 Baby Sleeps,4
-Background White Noise,4
-sped up + slowed,4
-Blake Shelton,4
-Dream Supplier,4
+Alex Warren,4
+Bruce Springsteen,4
+Perry Como,4
 "Earth, Wind & Fire",4
-Juliera,4
+Donny Hathaway,4
+Dream Supplier,4
+sped up + slowed,4
 Stevie Wonder,4
+Blake Shelton,4
+XG,4
+Juliera,4
+Background White Noise,4
 Joost,4
 Jona Lewie,4
-Perry Como,4
-Whitney Houston,3
 Flex (UK),3
-Elesia Iimura,3
-Chris Brown,3
-Eagles,3
-Baby Lasagna,3
-"Bobby ""Boris"" Pickett & The Crypt-Kickers",3
-ABBA,3
 Busta Rhymes,3
-Lil Uzi Vert,3
-JVKE,3
-Hotvibez,3
+Whitney Houston,3
 Toploader,3
+Hotvibez,3
+JVKE,3
+ABBA,3
+Baby Lasagna,3
 Andrew Gold,3
-O.T,3
+Lil Uzi Vert,3
+Elesia Iimura,3
 Mae Muller,3
+"Bobby ""Boris"" Pickett & The Crypt-Kickers",3
 Nate Dogg,3
-Neil Diamond,2
-Brett Eldredge,2
+Eagles,3
+Chris Brown,3
+O.T,3
 Atomic Kitten,2
-Black Eyed Peas,2
-Rockwell,2
-Ray Parker Jr.,2
-Outkast,2
-Paris Paloma,2
-leftovermax,2
-R3load,2
-Young Thug,2
-a-ha,2
-Lost Frequencies,2
-Offset,2
-New Order,2
+Brett Eldredge,2
 Skepta,2
-K-Trap,2
-Tems,2
-Sinéad O'Connor,2
+Black Eyed Peas,2
+Ray Parker Jr.,2
+Paris Paloma,2
+Offset,2
+Outkast,2
 Headie One,2
+a-ha,2
+Young Thug,2
+BTS,2
 Tracy Chapman,2
+K-Trap,2
+Fat Les,2
 Flo Rida,2
 The Verve,2
-BTS,2
+Tems,2
 Gala,2
-Fat Les,2
-Arcane,1
+Lost Frequencies,2
+leftovermax,2
+Rockwell,2
+Sinéad O'Connor,2
+R3load,2
+Neil Diamond,2
+New Order,2
+LEXMENDY,1
 blink-182,1
-Rick James,1
-citosxd,1
-Niall Horan,1
-Pomme,1
+It's Nique,1
+Arcane,1
+BERKO CHAMP,1
+Tiakola,1
+Fontaines D.C.,1
+Liam Payne,1
+Declan McKenna,1
+Noa Kirel,1
 George Ezra,1
+Pomme,1
+Niall Horan,1
+Rick James,1
 The Adventures Of Stevie V,1
 Stromae,1
-It's Nique,1
-LEXMENDY,1
-Noa Kirel,1
+Catfish and the Bottlemen,1
 Stephen Sanchez,1
-Liam Payne,1
-Tiakola,1
 The Lumineers,1
 The Kooks,1
-Fontaines D.C.,1
-Declan McKenna,1
-Catfish and the Bottlemen,1
-BERKO CHAMP,1
+citosxd,1
 4batz,1

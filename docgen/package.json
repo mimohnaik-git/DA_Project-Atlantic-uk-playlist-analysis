@@ -1,15 +1,14 @@
 {
   "name": "docgen",
   "version": "1.0.0",
-  "description": "Reproducible DOCX report generators for the UK Top 50 case study",
-  "main": "build_paper.js",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "test": "node --check report_helpers.js && node --check build_paper.js && node --check build_exec_summary.js",
-    "build": "node build_paper.js && node build_exec_summary.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
-  "license": "UNLICENSED",
+  "license": "ISC",
   "dependencies": {
     "docx": "^9.7.1"
   }
