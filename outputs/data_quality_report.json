@@ -1,0 +1,178 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "required_columns",
+      "status": "PASS",
+      "value": [],
+      "detail": "All required source fields must be present."
+    },
+    {
+      "name": "raw_row_count",
+      "status": "PASS",
+      "value": 27800,
+      "detail": "Supplied project extract is expected to contain 27,800 rows."
+    },
+    {
+      "name": "required_value_nulls",
+      "status": "PASS",
+      "value": 0,
+      "detail": "Null cells across required source fields."
+    },
+    {
+      "name": "date_parsing",
+      "status": "PASS",
+      "value": 0,
+      "detail": "Rows whose date could not be parsed."
+    },
+    {
+      "name": "calendar_date_coverage",
+      "status": "WARNING",
+      "value": [
+        "2025-03-14",
+        "2025-03-25",
+        "2025-07-11",
+        "2025-08-13"
+      ],
+      "detail": "Missing dates are reported; they are not imputed."
+    },
+    {
+      "name": "multiple_snapshots_per_date",
+      "status": "WARNING",
+      "value": {
+        "2025-03-01": 2
+      },
+      "detail": "Snapshot boundaries are inferred from source-order resets to position 1."
+    },
+    {
+      "name": "march_1_reconstruction",
+      "status": "PASS",
+      "value": [
+        "2025-03-01__1",
+        "2025-03-01__2"
+      ],
+      "detail": "The 100-row date must reconstruct as two complete Top-50 snapshots."
+    },
+    {
+      "name": "position_domain",
+      "status": "PASS",
+      "value": 0,
+      "detail": "Positions must be integers from 1 to 50."
+    },
+    {
+      "name": "snapshot_row_counts",
+      "status": "PASS",
+      "value": {},
+      "detail": "Each valid snapshot must contain 50 rows."
+    },
+    {
+      "name": "duplicate_snapshot_positions",
+      "status": "PASS",
+      "value": 0,
+      "detail": "Each expected position may occur once per snapshot."
+    },
+    {
+      "name": "missing_snapshot_positions",
+      "status": "PASS",
+      "value": {},
+      "detail": "Missing ranks within reconstructed snapshots."
+    },
+    {
+      "name": "exact_source_duplicates",
+      "status": "WARNING",
+      "value": 12,
+      "detail": "Repeated complete source rows are retained when they belong to different inferred snapshots."
+    },
+    {
+      "name": "duplicate_recordings_within_snapshot",
+      "status": "PASS",
+      "value": 0,
+      "detail": "Repeated recording proxies inside one snapshot require review."
+    },
+    {
+      "name": "album_type_domain",
+      "status": "PASS",
+      "value": [],
+      "detail": "Unexpected release-format values."
+    },
+    {
+      "name": "explicit_content_domain",
+      "status": "PASS",
+      "value": [],
+      "detail": "Explicit flag must be boolean."
+    },
+    {
+      "name": "positive_duration",
+      "status": "PASS",
+      "value": 0,
+      "detail": "Zero or negative duration values."
+    },
+    {
+      "name": "positive_total_tracks",
+      "status": "PASS",
+      "value": 0,
+      "detail": "Invalid parent-release track counts."
+    },
+    {
+      "name": "popularity_bounds",
+      "status": "PASS",
+      "value": 0,
+      "detail": "Popularity must be between 0 and 100."
+    },
+    {
+      "name": "artist_parsing",
+      "status": "PASS",
+      "value": 0,
+      "detail": "Entries with no parsed credited artist."
+    },
+    {
+      "name": "empty_collaborator_arrays",
+      "status": "PASS",
+      "value": 0,
+      "detail": "Chart entries without a credited-artist array."
+    },
+    {
+      "name": "nationality_coverage",
+      "status": "WARNING",
+      "value": 0.7,
+      "detail": "Manual nationality mapping is incomplete by design; unclassified artists remain explicit."
+    },
+    {
+      "name": "recording_metadata_stability",
+      "status": "WARNING",
+      "value": {
+        "song": 3,
+        "credited_artist_set": 25,
+        "duration_ms": 0,
+        "album_type": 48,
+        "total_tracks": 59,
+        "is_explicit": 11,
+        "credited_artist_set_on_title_duration_key": 25
+      },
+      "detail": "Recording-proxy metadata can legitimately vary across repeated chart observations; the proxy identity remains title + exact duration."
+    },
+    {
+      "name": "title_collisions",
+      "status": "WARNING",
+      "value": 33,
+      "detail": "Normalised song titles associated with multiple exact durations."
+    },
+    {
+      "name": "fractional_artist_weights",
+      "status": "PASS",
+      "value": 0.0,
+      "detail": "Fractional artist weights for each chart entry must reconcile to 1.0."
+    },
+    {
+      "name": "output_row_consistency",
+      "status": "PASS",
+      "value": {
+        "raw": 27800,
+        "processed": 27800,
+        "artist_credits": 34492,
+        "recordings": 833
+      },
+      "detail": "Raw and processed row counts must reconcile; derived grains are reported separately."
+    }
+  ]
+}
