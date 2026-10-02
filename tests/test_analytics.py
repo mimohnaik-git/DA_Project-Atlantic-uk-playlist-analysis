@@ -110,3 +110,13 @@ def test_snapshot_effective_artists_matches_exp_entropy(prepared):
         - np.exp(snapshot["shannon_entropy"])
     ).abs().max()
     assert float(error) < 1e-12
+
+def test_duration_by_popularity_quartile_regression(prepared):
+    _, clean, *_ = prepared
+    got = an.duration_vs_popularity(clean).to_dict()
+    assert got == {
+        "Q1 (Lowest)": 200.2,
+        "Q2": 200.6,
+        "Q3": 197.1,
+        "Q4 (Highest)": 189.1,
+    }

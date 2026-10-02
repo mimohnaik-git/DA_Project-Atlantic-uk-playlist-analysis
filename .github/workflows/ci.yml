@@ -15,6 +15,7 @@ jobs:
           cache: pip
       - run: python -m pip install --upgrade pip
       - run: pip install -r requirements.txt
+      - run: python -m pip check
       - run: python -m compileall -q app.py src scripts tests
       - run: pytest -q --tb=short
       - run: python scripts/validate.py
@@ -29,3 +30,12 @@ jobs:
         working-directory: docgen
       - run: python scripts/verify_methodology.py
       - run: python scripts/build_all.py
+      - name: Verify deterministic generated artifacts are current
+        run: |
+          git diff --exit-code -- \
+            outputs/report_data.json \
+            outputs/data_quality_report.json \
+            outputs/data_quality_report.csv \
+            outputs/analytics_output.txt \
+            outputs/artist_appearance_counts.csv \
+            outputs/build_manifest.json

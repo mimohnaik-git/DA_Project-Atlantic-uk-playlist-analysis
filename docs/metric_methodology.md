@@ -62,6 +62,14 @@ Nationality is manually curated from the billed act's primary origin. Groups are
 
 The analysis distinguishes full artist-credit weighting from fractional-entry weighting. Individual nationality mappings should be source-reviewed before external publication because the supplied project materials do not provide structured citations for each mapping.
 
+## Popularity quartiles
+
+The supplied `popularity` field is a discrete 0-100 source variable whose upstream calculation methodology is not identified in the supplied project materials.
+
+For the duration-by-popularity view, quartile boundaries are calculated from the raw popularity-score distribution. Equal popularity scores are always kept in the same bucket rather than being split by source-row order. Because ties can occur at quantile boundaries, the resulting quartile groups are not required to contain exactly the same number of rows.
+
+The bucket assignment is created during canonical data preparation for the supplied dataset and is not recalculated independently for dashboard filters.
+
 ## Retired legacy measures
 
 The earlier **Diversity Score** and custom **Content Variety Index** are not used as headline measures in the final dashboard.
