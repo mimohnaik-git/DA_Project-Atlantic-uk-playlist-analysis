@@ -83,3 +83,26 @@ def test_multi_artist_credit_is_split():
 
 def test_title_normalization_is_case_insensitive():
     assert normalize_song_title("  Song   Name ") == "song name"
+
+def test_popularity_quartiles_preserve_ties(prepared):
+    _, clean, *_ = prepared
+    splits = (
+        clean.groupby("popularity", observed=True)["popularity_bucket"]
+        .nunique()
+    )
+    assert int(splits.max()) == 1
+
+
+def test_popularity_quartile_counts(prepared):
+    _, clean, *_ = prepared
+    got = (
+        clean["popularity_bucket"]
+        .value_counts(sort=False)
+        .to_dict()
+    )
+    assert got == {
+        "Q1 (Lowest)": 7229,
+        "Q2": 8255,
+        "Q3": 6755,
+        "Q4 (Highest)": 5561,
+    }

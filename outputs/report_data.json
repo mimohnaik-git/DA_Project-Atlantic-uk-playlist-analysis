@@ -250,10 +250,10 @@
       "Extended (4:30+)": 6.06
     },
     "by_popularity_quartile_seconds": {
-      "Q1 (Lowest)": 201.0,
-      "Q2": 202.3,
-      "Q3": 195.2,
-      "Q4 (Highest)": 190.9
+      "Q1 (Lowest)": 200.2,
+      "Q2": 200.6,
+      "Q3": 197.1,
+      "Q4 (Highest)": 189.1
     },
     "summary_seconds": {
       "count": 27800.0,

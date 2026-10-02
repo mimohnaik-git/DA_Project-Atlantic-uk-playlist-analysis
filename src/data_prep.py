@@ -184,11 +184,24 @@ def clean(df: pd.DataFrame) -> pd.DataFrame:
     out["duration_bucket"] = out["duration_sec"].map(_duration_bucket)
     out["album_size_bucket"] = out["total_tracks"].map(_album_size_bucket)
 
-    # Stable quartile labels. Duplicated popularity values can make qcut edges
-    # ambiguous, so rank first to guarantee four bins deterministically.
-    ranks = out["popularity"].rank(method="first")
-    out["popularity_bucket"] = pd.qcut(
-        ranks, 4, labels=["Q1 (Lowest)", "Q2", "Q3", "Q4 (Highest)"]
+    # Tie-preserving popularity quartiles.
+    # Quantile boundaries are learned from the raw popularity scores so equal
+    # scores are never split across buckets merely because of source-row order.
+    popularity = pd.to_numeric(out["popularity"], errors="raise")
+    q25, q50, q75 = popularity.quantile([0.25, 0.50, 0.75]).tolist()
+
+    if len({q25, q50, q75}) != 3:
+        raise ValueError(
+            "Popularity quartile boundaries are not distinct; "
+            "four tie-preserving buckets cannot be formed."
+        )
+
+    out["popularity_bucket"] = pd.cut(
+        popularity,
+        bins=[-np.inf, q25, q50, q75, np.inf],
+        labels=["Q1 (Lowest)", "Q2", "Q3", "Q4 (Highest)"],
+        include_lowest=True,
+        right=True,
     )
 
     out["snapshot_seq"] = _reconstruct_snapshots(out)
