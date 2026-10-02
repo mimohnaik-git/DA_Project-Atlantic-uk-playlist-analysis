@@ -1,10 +1,25 @@
 import math
+import pandas as pd
 import analytics as an
 
 
 def test_top5_artist_credit_share(prepared):
     _, _, exploded, *_ = prepared
     assert an.artist_concentration_index(exploded, 5)["top_n_share_pct"] == 15.29
+
+
+def test_artist_appearances_sorts_ties_by_artist_name():
+    exploded = pd.DataFrame(
+        {"artist_name": ["Zulu", "Alpha", "Beta", "Zulu", "Alpha"]}
+    )
+
+    result = an.artist_appearances(exploded)
+
+    assert isinstance(result, pd.Series)
+    assert result.name == "appearances"
+    assert result.index.name == "artist_name"
+    assert result.to_dict() == {"Alpha": 2, "Zulu": 2, "Beta": 1}
+    assert result.index.tolist() == ["Alpha", "Zulu", "Beta"]
 
 
 def test_period_full_credit_hhi(prepared):
