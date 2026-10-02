@@ -148,7 +148,7 @@ The March 1, 2025 anomaly is retained as two complete snapshots. Four absent dat
 
 ## Testing and CI
 
-The pytest suite covers parsing, snapshots, duplicates, recording identity, rank logic, collaboration, weighting, direct snapshot Shannon/effective-artist/HHI regressions, and real-dataset integration. GitHub Actions uses Python 3.12, compiles the project, runs pytest, validation and methodology verification, installs Node dependencies with `npm ci`, then builds canonical processed data, figures and DOCX reports. It does not require secrets.
+The pytest suite covers parsing, snapshots, duplicates, recording identity, rank logic, collaboration, weighting, popularity-quartile tie handling, direct snapshot Shannon/effective-artist/HHI regressions, and real-dataset integration. GitHub Actions uses Python 3.12, checks dependency consistency, compiles the project, runs pytest, validation and methodology verification, installs Node dependencies with `npm ci`, then builds canonical processed data, figures and DOCX reports. CI also verifies that committed deterministic analytical outputs match a fresh build. DOCX binaries are rebuilt but are not compared byte-for-byte because document-package metadata can vary between builds. The workflow does not require secrets.
 
 Recommended remote settings: require the CI workflow on pull requests, require one review, block force pushes and restrict direct pushes to `main`.
 
