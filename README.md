@@ -196,18 +196,11 @@ Generated reports are stored in `reports/` and consume canonical values from `ou
 
 ## Original Submission Links
 
-These confirmed working links point to the original internship submission. They are distinct from the current post-evaluation remediated portfolio version in this repository.
+The external report, project material and Streamlit deployment below originate from the internship submission. The repository itself has since been renamed and remediated as the current post-evaluation portfolio version; the former GitHub URL now redirects here.
 
-- [Code](https://github.com/mimohnaik-git/Atlantic-uk-playlist-analysis)
 - [Report](https://drive.google.com/file/d/1gWT_Mc9cw9j6JKibKmkkua_q7trmI9bm/view?usp=sharing)
 - [Live Project Material](https://drive.google.com/file/d/18ZdTJypzPweQa78qbFkkIg50_yatizUx/view?usp=sharing)
 - [Streamlit](https://atlantic-uk-playlist-analysis-xnlekfzl2sx8padpthqvme.streamlit.app/)
-
-## Suggested Repository Metadata
-
-**Description:** Post-evaluation Data Analyst internship case study analyzing UK Top 50 market structure, artist diversity, collaborations and content localization.
-
-**Topics:** `data-analysis`, `python`, `pandas`, `streamlit`, `music-analytics`, `data-visualization`, `analytics-dashboard`, `data-quality`, `pytest`, `portfolio-project`
 
 ---
 

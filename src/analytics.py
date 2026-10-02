@@ -15,7 +15,18 @@ def unique_artists_per_day(exploded):
 
 
 def artist_appearances(exploded):
-    return exploded.groupby("artist_name").size().sort_values(ascending=False).rename("appearances")
+    counts = exploded.groupby("artist_name").size().rename("appearances")
+    return (
+        counts.rename_axis("artist_name")
+        .reset_index()
+        .sort_values(
+            ["appearances", "artist_name"],
+            ascending=[False, True],
+            kind="mergesort",
+        )
+        .set_index("artist_name")["appearances"]
+        .rename("appearances")
+    )
 
 
 def top_dominating_artists(exploded, n=20):
